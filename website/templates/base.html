@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
+  <meta name="description" content="{% block meta_description %}Welcome To The Website Of Style Echo!{% endblock %}">
+  <meta name="author" content="Tahmina Akter">
+  <title>
+  {% block title %}
+    Style Echo
+  {% endblock %}
+  </title>
+  <link rel="shortcut icon" href="{% static 'website/images/favicon.ico' %}">
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'website/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'website/css/modern-business.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'home' %}">Style Echo</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  {% block content %}
+
+  {% endblock %}
+
+   <!-- Footer -->
+  <footer class="py-5 bg-dark">
+      <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Django Developer | 
+	  <a href="https://web.facebook.com/Akter.WebDeveloper">akter.djangodeveloper@gmail.com   </a>
+	  <i class="fa fa-mobile" aria-hidden="true"></i></i>  +880 1631453101  |  
+	  Powered by <strong>Akter'</strong></p>
+      </div>
+    <!-- /.container -->
+  </footer>
+  
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'website/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'website/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+  <!-- for computer icon -->
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+</body>
+
+</html>

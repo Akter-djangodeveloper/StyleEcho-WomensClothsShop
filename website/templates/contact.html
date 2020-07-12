@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Contact Style Echo {% endblock %}
+{% block meta_description %}This is the website of Style Echo!{% endblock %}
+{% block content %}
+
+<!-- Page Content -->
+  <div class="container">
+
+    <!-- Page Heading/Breadcrumbs -->
+    <h1 class="mt-4 mb-3">Contact
+      <small>Style Echo</small>
+    </h1>
+
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="/">Home</a>
+      </li>
+      <li class="breadcrumb-item active">Contact Style Echo</li>
+    </ol>
+
+    <!-- ***** Contact Area Start ***** -->
+
+  {% if subject %}
+      <center>
+      <h2>Thanks {{ subject }}!</h2>
+      <p>We received your email and will respond shortly...
+      </p>
+      </center>
+      <br/><br/><br/>
+    {% else %}
+
+
+    <!-- Features Section -->
+    <div class="row">
+      <div class="col-lg-6">
+        <h2>About</h2>
+        <p>Our journey has started just as a little Facebook page in 2012, in that time Facebook online shopping was not very popular concept here in Bangladesh. We had to work very hard to get where we are now today. We had lots of ups and downs in this timeline of our business but currently we own two remarkably successful stores in the biggest and most popular shopping malls in Bangladesh which are in Jamuna Future Park and Banshundhara City Shopping Mall. We can proudly say that it would have never been possible without our customer's appreciation and support, each and every customer who spent a penny in our products has a great role in our success.</p>
+        <ul class="fa-ul">
+          <li>🏢 Shop 1: Jamuna Future Park, Level: 2, Zone: C, South Court, Shop: 2C-034, open from 10 am to 7 pm. (Wednesday Closed)
+          </li>
+         
+          <li>🏪 Shop 2: Bashundhara City Shopping Mall. Level 4, Block C, Shop 26 and 26/a, open from 10 am to 7 pm. (Tuesday Closed)</li>
+          
+          <li>🏣 Shop 3: Shimanto Square, Dhanmondi (Rifles Square), Level: 2 (Top Floor), Shop: 307 and 308, open from 10 am to 7 pm. (Tuesday Closed)</li>
+          
+          <li>🎥 Live day: Saturday to Thursday (3 pm)</li>
+          
+          <li>💌 Online order here > m.me/StyleEcho <a href=https://www.messenger.com/t/StyleEcho">Send message</a></li>
+          
+          <li>☎️ Office Phone: 01701883473 (call time 11.00 am to 5.00 pm - Saturday to Thursday)
+          </li>
+        </ul>
+        
+      </div>
+      <div class="col-lg-6">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.8944208292955!2d90.38844031429699!3d23.75114409466637!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b92e3311000f%3A0x4f7ac5c6b10da8d!2sStyle%20Echo!5e0!3m2!1sen!2sbd!4v1594100210678!5m2!1sen!2sbd" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+      </div>
+    </div>
+    <!-- /.row -->
+
+   <hr>
+
+
+            <!-- Section Heading -->
+            <div class="section-heading">
+              <h2>Get In Touch</h2>
+              <div class="line"></div>
+            </div>
+            <!-- Form -->
+            <form action="{% url 'contact' %}" method="post">
+              {% csrf_token %}
+              
+              <div class="row">
+                  <div class="col-lg-6">
+                    <input type="text" name="message-name" class="form-control mb-30" placeholder="Your Name">
+                  </div>
+                  
+                  <div class="col-lg-6">
+                    <input type="email" name="message-email" class="form-control mb-30" placeholder="Your Email">
+                  </div>
+                  <br/> <br/> 
+                  <div class="col-12">
+                    <textarea name="message" class="form-control mb-30" placeholder="Your Message"></textarea>
+                  </div>
+                  <br/> <br/><br/> <br/>
+                  <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                  </div>
+                  <br/> <br/>
+              </div>
+            </form>
+
+  </div>
+
+  {% endif %}
+  <!-- /.container -->
+{% endblock %}
+
+
+ 
+
