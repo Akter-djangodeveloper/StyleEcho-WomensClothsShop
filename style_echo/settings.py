@@ -1,5 +1,7 @@
 import os
-
+import django_heroku
+import dj_database_url
+from decouple import config
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -25,7 +27,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-	'bootstrap4',
 	'website',
 ]
 
@@ -36,7 +37,8 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware', 
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'style_echo.urls'
@@ -44,7 +46,7 @@ ROOT_URLCONF = 'style_echo.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -112,6 +114,9 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 # myaccount.google.com/lesssecureapps
 # accounts.google.com/DisplayUnlockCaptcha
 # myaccount.google.com/apppasswords
@@ -122,3 +127,6 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'tahmina16cse@gmail.com'
 EMAIL_HOST_PASSWORD = 'ezxfdfsjgdfcrfvo'
 EMAIL_USE_TLS = True
+
+
+django_heroku.settings(locals())
